@@ -10,8 +10,10 @@ function seleccionarMascotaJugador() {
     let inputTraidor = document.getElementById("Traidor")
     let inputHiphap = document.getElementById("Hiphap")
     let inputRocky = document.getElementById("Rocky")
+    let spanMascotaJugador = document.getElementById("mascotaJugador")
     if (inputBunwilkl.checked){
         alert ("Seleccionaste a Bunwilkl")
+        spanMascotaJugador.innerHTML = "Bunwilkl"
     }
     else if(inputSuit.checked){
         alert ("Seleccionaste a Suit")
