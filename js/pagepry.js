@@ -46,8 +46,10 @@ function seleccionarMascotaJugador() {
     else {
         alert("Debes seleccionar una mascota 👈")
     }
-
-    seleccionarMascotaEnemigo()
+    if (spanMascotaJugador.innerHTML != ""){
+        seleccionarMascotaEnemigo()
+    }
+    
 }
 function seleccionarMascotaEnemigo(){
     let ataqueAleatorio = aleatorio(1,6)
