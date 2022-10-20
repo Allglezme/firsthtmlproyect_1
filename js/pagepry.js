@@ -74,14 +74,15 @@ function seleccionarMascotaEnemigo(){
 }
 function ataqueFuego(){
     ataqueJugador = "FUEGO"
-    alert()
+    alert(ataqueJugador)
 }
 function ataqueAgua(){
     ataqueJugador = "AGUA"
-    alert()
+    alert(ataqueJugador)
 }
 function ataqueTierra(){
     ataqueJugador = "TIERRA"
+    alert(ataqueJugador)
     
 }
 
