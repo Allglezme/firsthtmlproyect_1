@@ -1,0 +1,17 @@
+.titulo {
+    color:salmon;
+    width: 297px;
+    height: 50 px;
+    background-color:aliceblue ;
+}
+#seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    width: 150px;
+    height: 50 px;
+    background-color:lightskyblue ;
+}
