@@ -9,9 +9,10 @@ function iniciarJuego() {
 
     let sectionReiniciar= document.getElementById("reiniciar")
     sectionReiniciar.style.display = "none"
-
     let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
+
+    
 
     let botonFuego= document.getElementById('botonFuego')
     botonFuego.addEventListener('click', ataqueFuego)
@@ -25,11 +26,7 @@ function iniciarJuego() {
     }
 
 function seleccionarMascotaJugador() {
-    let sectionSeleccionarMascota= document.getElementById("seleccionar-mascota")
-    sectionSeleccionarMascota.style.display = "none"
 
-    let sectionSeleccionarAtaque= document.getElementById("seleccionarataque")
-    sectionSeleccionarAtaque.style.display = "block"
 
     let inputBunwilkl = document.getElementById("Bunwilkl")
     let inputSuit = document.getElementById("Suit")
@@ -65,9 +62,15 @@ function seleccionarMascotaJugador() {
     }
     else {
         alert("Debes seleccionar una mascota 👈")
+
     }
     if (spanMascotaJugador.innerHTML != ""){
         seleccionarMascotaEnemigo()
+        let sectionSeleccionarMascota= document.getElementById("seleccionar-mascota")
+        sectionSeleccionarMascota.style.display = "none"
+    
+        let sectionSeleccionarAtaque= document.getElementById("seleccionarataque")
+        sectionSeleccionarAtaque.style.display = "block"
     }
     //activarid combate
 }
