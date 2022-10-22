@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
+body{
+    font-family: 'DynaPuff', cursive;
+    background-color: #FF8787;
+}
+    
+
 .titulo {
-    color:salmon;
-    width: 297px;
+    color:aliceblue;
+    font-size: 36px;
+    width: 330px;
     height: 50 px;
-    background-color:aliceblue ;
+}
+.subtitulo {
+    color: whitesmoke;
 }
 #seleccionar-mascota {
     display: flex;
@@ -15,3 +26,59 @@ button{
     height: 50 px;
     background-color:lightskyblue ;
 }
+.tarjetas {
+    display: flex;
+    gap: 10px
+}
+.tarjetademokepon{
+    width: 100px;
+    height: 50px;
+    background: #F8C4B4;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 8px;
+    border: 4px outset    rgb(177, 106, 101);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff
+}
+.tarjetademokepon img
+    {
+        width: 50px;
+        height: 50px;  
+    }
+.botonseleccionar{
+    width: 120px;
+    height: 60px;
+    background: #e0e2c7;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 8px;
+    border: 6px outset    rgb(223, 175, 191);
+    
+}
+.botonreiniciar{
+    width: 211px;
+    height: 60px;
+    background: #fa7697;
+    padding: 18px;
+    box-sizing: border-box;
+    margin: -4px;
+    border: 6px outset rgb(53, 96, 107);
+    
+}
+.botonmokepon{
+    width: 86px;
+    background: #BCE29E;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 8px;
+    border: 5px outset    rgb(50, 119, 79);
+}
+input{
+    display: none;
+}
+font-family: 'Alegreya', serif;
+

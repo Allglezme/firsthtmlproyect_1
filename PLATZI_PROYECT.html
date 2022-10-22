@@ -9,27 +9,39 @@
         </script>
     </head>
     <body>
-        <h1 class="titulo">MOKEPON! 🔥💧🌱</h1>
+       
         <section id="seleccionar-mascota">
-            <h2>Elige tu mascota:</h2>
-            <label for="Bunwilkl">Bunwilkl</label>
-            <input type="radio" name="mascota" id="Bunwilkl" />
-            <label for="Suit">Suit</label>
-            <input type="radio" name="mascota" id="Suit" />
-            <label for="Domino">Domino</label>
-            <input type="radio" name="mascota" id="Domino" />
-            <label for="Hiphap">Hiphap</label>
-            <input type="radio" name="mascota" id="Hiphap" />
-            <label for="Traidor">Traidor</label>
-            <input type="radio" name="mascota" id="Traidor" />
-            <label for="Rocky">Rocky</label>
-            <input type="radio" name="mascota" id="Rocky" />
-            <!--esto es una prueba de una funcion  labelselector (rock)--> 
-            
+            <h1 class="titulo">MOKEPON! 🔥💧🌱</h1>
 
-            <p><button id="boton-mascota">Seleccionar</button></p>
+            <h2 class="subtitulo">Elige tu mascota:</h2>
+            <div class="tarjetas">
+                <label class = "tarjetademokepon" for="Bunwilkl">
+                    <p>Bunwilkl</p>
+                    <img src="./assets/bbokariFront.png" alt="Bunwilkl">
+                </label>
+                <input type="radio" name="mascota" id="Bunwilkl" />
+
+                <label class = "tarjetademokepon" for="Suit">Suit</label>
+                <input type="radio" name="mascota" id="Suit" />
+
+                <label class = "tarjetademokepon" for="Domino">Domino</label>
+                <input type="radio" name="mascota" id="Domino" />
+
+                <label class = "tarjetademokepon" for="Hiphap">Hiphap</label>
+                <input type="radio" name="mascota" id="Hiphap" />
+
+                <label class = "tarjetademokepon" for="Traidor">Traidor</label>
+                <input type="radio" name="mascota" id="Traidor" />
+
+                <label class = "tarjetademokepon" for="Rocky">Rocky</label>
+                <input type="radio" name="mascota" id="Rocky" />
+                <!--esto es una prueba de una funcion  labelselector (rock)--> 
+            </div>
+
+            <p><button class = "botonseleccionar"id="boton-mascota">Seleccionar</button></p>
         </section>
         <section id="seleccionarataque">
+            <h1 class="titulo">MOKEPON! 🔥💧🌱</h1>
             <h2>Elige tu ataque:</h2>
             <p>
                 Tu mascota <span id= "mascotaJugador"></span> tiene <span id="vidasJugador">3</span> vidas
@@ -38,16 +50,16 @@
             <p>
                 La mascota <span id= "mascotaEnemigo"></span> del enemigo tiene <span id="vidasEnemigo">3</span> vidas</p>
             <p>
-                <button id="botonFuego">Fuego 🔥</button>
-                <button id="botonAgua">Agua 💧</button>
-                <button id="botonTierra">Tierra 🌱</button>
+                <button class = "botonmokepon"id="botonFuego">Fuego 🔥</button>
+                <button class = "botonmokepon"id="botonAgua">Agua 💧</button>
+                <button class = "botonmokepon"id="botonTierra">Tierra 🌱</button>
             </p>
         </section>
         <section id="mensajes">
         
         </section>
         <section id="reiniciar">
-            <button id = "boton reiniciar">Reiniciar</button>
+            <button class = "botonreiniciar" id = "boton reiniciar">Reiniciar</button>
         </section>
     </body>
 </html>
