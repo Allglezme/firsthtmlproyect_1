@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=DynaPuff&family=Mukta:wght@300&display=swap');
+
 
 body{
-    font-family: 'DynaPuff', cursive;
+    font-family: 'Bree Serif', serif;
     background-color: #FF8787;
 }
     
@@ -11,6 +12,7 @@ body{
     font-size: 36px;
     width: 330px;
     height: 50 px;
+    font-family:'DynaPuff', cursive;
 }
 .subtitulo {
     color: whitesmoke;
@@ -31,8 +33,8 @@ button{
     gap: 10px
 }
 .tarjetademokepon{
-    width: 100px;
-    height: 50px;
+    width: 160px;
+    height: 88px;
     background: #F8C4B4;
     padding: 15px;
     box-sizing: border-box;
@@ -46,39 +48,43 @@ button{
 }
 .tarjetademokepon img
     {
-        width: 50px;
-        height: 50px;  
+        width: 64px;
+        height: 64px;  
     }
 .botonseleccionar{
-    width: 120px;
-    height: 60px;
-    background: #e0e2c7;
+    width: 128px;
+    height: 68px;
+    background: transparent;
     padding: 8px;
     box-sizing: border-box;
-    margin: 8px;
-    border: 6px outset    rgb(223, 175, 191);
+    margin-top: 8px;
+    border: 4px outset    rgb(255, 255, 255);
+    color :white ;
+    border-radius: 20px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 20px;
     
 }
 .botonreiniciar{
     width: 211px;
     height: 60px;
-    background: #fa7697;
+    background: #FCFFB2;
     padding: 18px;
     box-sizing: border-box;
     margin: -4px;
-    border: 6px outset rgb(53, 96, 107);
+    border: 4px outset rgb(53, 96, 107);
+    border-radius: 20px;
     
 }
 .botonmokepon{
     width: 86px;
-    background: #BCE29E;
+    background: #F8C4B4;
     padding: 8px;
     box-sizing: border-box;
     margin: 8px;
-    border: 5px outset    rgb(50, 119, 79);
+    border: 4px outset    rgb(50, 119, 79);
+    border-radius: 16px;
 }
 input{
     display: none;
 }
-font-family: 'Alegreya', serif;
-
