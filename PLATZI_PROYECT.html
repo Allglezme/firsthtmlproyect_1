@@ -58,24 +58,32 @@
         </section>
         <section id="seleccionarataque">
             <h1 class="titulo">MOKEPON! 🔥💧🌱</h1>
-            <h2>Elige tu ataque:</h2>
+            <h2 class="subtitulo">Elige tu Ataque:</h2>
                 <div>
-                    <button class = "botonmokepon"id="botonFuego">Fuego 🔥</button>
-                    <button class = "botonmokepon"id="botonAgua">Agua 💧</button>
-                    <button class = "botonmokepon"id="botonTierra">Tierra 🌱</button>
+                    <button class = "botonAtaquetipofuego"id="botonFuego">Fuego 🔥</button>
+                    <button class = "botonAtaquetipoagua"id="botonAgua">Agua 💧</button>
+                    <button class = "botonAtaquetipotierra"id="botonTierra">Tierra 🌱</button>
                 </div>
-                
-                <div>   
-                    <section id="mensajes">
-                    
-                    </section>
-                    <section id="reiniciar">
-                        <button class = "botonreiniciar" id = "boton reiniciar">Reiniciar</button>
-                    </section>
+                   
+                <div id="mensajes"> 
+                        <p id = "resultadoDelAtaque">Mucha suerte!</p>
+                        <section id="reiniciar">
+                            <button class = "botonreiniciar" id = "boton reiniciar">Reiniciar</button>
+                        </section>
                 </div>
-                <div>
-                    <p>Tu mascota <span id= "mascotaJugador"></span> tiene <span id="vidasJugador">3</span> vidas</p>
-                    <p> La mascota <span id= "mascotaEnemigo"></span> del enemigo tiene <span id="vidasEnemigo">3</span> vidas</p>
+    
+                <div class="ataquesLanzados">
+                    <div>
+                        <p id= "vidasJugador">3</p>
+                        <p id= "mascotaJugador"></p>
+                        <div id = "ataqueDelJugador"></div>
+                    </div>
+
+                    <div>
+                        <p id= "vidasEnemigo">3</p>
+                        <p id= "mascotaEnemigo"></p>
+                        <div id = "ataqueDelEnemigo"></div>
+                    </div>
                 </div>    
         </section>
     </body>
