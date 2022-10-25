@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>MOKEPON!</title>
-        <script src="./js/pagepry.js"></script>
+        
         <link rel="stylesheet" href="./styles.css"
         <script> 
         </script>
@@ -15,43 +15,41 @@
 
             <h2 class="subtitulo">Elige tu mascota:</h2>
             <div class="tarjetas">
+                <input type="radio" name="mascota" id="Bunwilkl" />
                 <label class = "tarjetademokepon" for="Bunwilkl">
                     <p>Bunwilkl</p>
                     <img src="./assets/bbokariFront.png" alt="Bunwilkl">
                 </label>
-                <input type="radio" name="mascota" id="Bunwilkl" />
-
+                
+                <input type="radio" name="mascota" id="Suit" />
                 <label class = "tarjetademokepon" for="Suit">
                     <p>Suit</p>
                     <img src="./assets/leebitFront.png" alt="Suit">
                 </label>
-                <input type="radio" name="mascota" id="Suit" />
-
+                
+                <input type="radio" name="mascota" id="Domino" />
                 <label class = "tarjetademokepon" for="Domino">
                     <p>Domino</p>
                     <img src="./assets/jiniretFront.png" alt="Domino">
                 </label>
-                <input type="radio" name="mascota" id="Domino" />
 
-    
+                <input type="radio" name="mascota" id="Hiphap" />
                 <label class = "tarjetademokepon" for="Hiphap">
                     <p>Hiphap</p>
                     <img src="./assets/quokkaFront.png" alt="Hiphap">
                 </label>
-                <input type="radio" name="mascota" id="Hiphap" />
-                    
+                
+                <input type="radio" name="mascota" id="Traidor" />
                 <label class = "tarjetademokepon" for="Traidor">
                     <p>Traidor</p>
                     <img src="./assets/foxinyFront.png" alt="Traidor">
                 </label>
-                <input type="radio" name="mascota" id="Traidor" />
-
+                
+                <input type="radio" name="mascota" id="Rocky" />
                 <label class = "tarjetademokepon" for="Rocky">
                     <p>Rocky</p>
                     <img src="./assets/wolfFront.png" alt="Rocky">
                 </label>
-                <input type="radio" name="mascota" id="Rocky" />
-                <!--esto es una prueba de una funcion  labelselector (rock)--> 
             </div>
 
             <p><button class = "botonseleccionar"id="boton-mascota">Seleccionar</button></p>
@@ -59,10 +57,10 @@
         <section id="seleccionarataque">
             <h1 class="titulo">MOKEPON! 🔥💧🌱</h1>
             <h2 class="subtitulo">Elige tu Ataque:</h2>
-                <div>
-                    <button class = "botonAtaquetipofuego"id="botonFuego">Fuego 🔥</button>
-                    <button class = "botonAtaquetipoagua"id="botonAgua">Agua 💧</button>
-                    <button class = "botonAtaquetipotierra"id="botonTierra">Tierra 🌱</button>
+                <div  class="tarjetasAtaques">
+                    <button class = "botonAtaquetipofuego botonAtaque"id="botonFuego">Fuego 🔥</button>
+                    <button class = "botonAtaquetipoagua botonAtaque" id="botonAgua">Agua 💧</button>
+                    <button class = "botonAtaquetipotierra botonAtaque"id="botonTierra">Tierra 🌱</button>
                 </div>
                    
                 <div id="mensajes"> 
@@ -73,18 +71,19 @@
                 </div>
     
                 <div class="ataquesLanzados">
-                    <div>
+                    <div class="ataquesLanzadosJugador">
                         <p id= "vidasJugador">3</p>
                         <p id= "mascotaJugador"></p>
                         <div id = "ataqueDelJugador"></div>
                     </div>
 
-                    <div>
+                    <div class="ataquesLanzadosEnemigo">
                         <p id= "vidasEnemigo">3</p>
                         <p id= "mascotaEnemigo"></p>
                         <div id = "ataqueDelEnemigo"></div>
                     </div>
                 </div>    
         </section>
+        <script src="./js/pagepry.js"></script>
     </body>
 </html>
