@@ -28,23 +28,24 @@ button{
     height: 50 px;
     background-color:lightskyblue ;
 }
-.tarjetas {
+.tarjetas, .tarjetasAtaques {
     display: flex;
     gap: 10px
 }
 .tarjetademokepon{
     width: 160px;
     height: 88px;
-    background: #F8C4B4;
+    background: #FF5858;
     padding: 15px;
     box-sizing: border-box;
     margin: 8px;
     border: 4px outset    rgb(177, 106, 101);
-    border-radius: 16px;
+    border-radius: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff
+    color: #fff;
+    font-size: 20px;
 }
 .tarjetademokepon img
     {
@@ -53,7 +54,7 @@ button{
     }
 
 .botonseleccionar{
-    width: 140px;
+    width: 160px;
     height: 68px;
     background: transparent;
     padding: 8px;
@@ -64,17 +65,24 @@ button{
     border-radius: 20px;
     font-family: 'Mukta', sans-serif;
     font-size: 24px;
-    
+}
+.botonseleccionar:hover {
+    background-color: rgb(172, 177, 26);
+}
+input {
+    display: none;
+}
+input:checked + label {
+ background-color: #E0144C;
 }
 #seleccionarataque{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.botonAtaquetipofuego{
+.botonAtaque{
     width: 104px;
     height: 60px;
-    background: rgb(255, 108, 108);
     padding: 8px;
     box-sizing: border-box;
     margin: 8px;
@@ -83,32 +91,21 @@ button{
     color: black;
     font-family: 'Mukta', sans-serif;
     font-size: 20px;
+}
+.botonAtaque:hover {
+    background-color: azure;
+}
+.botonAtaque:disabled{
+    background-color:#7F8487;
+}
+.botonAtaquetipofuego{
+    background: rgb(255, 108, 108);
 }
 .botonAtaquetipoagua{
-    width: 104px;
-    height: 60px;
     background: rgb(135 196 225);
-    padding: 8px;
-    box-sizing: border-box;
-    margin: 8px;
-    border: 4px outset    rgb(27, 66, 44);
-    border-radius: 36px;
-    color: black;
-    font-family: 'Mukta', sans-serif;
-    font-size: 20px;
 }
-.botonAtaquetipotierra{
-    width: 104px;
-    height: 60px;
-    background: rgb(164 233 156);
-    padding: 8px;
-    box-sizing: border-box;
-    margin: 8px;
-    border: 4px outset    rgb(27, 66, 44);
-    border-radius: 36px;
-    color: black;
-    font-family: 'Mukta', sans-serif;
-    font-size: 20px;
+.botonAtaquetipotierra{ 
+    background: rgb(164 233 156);   
 }
 #mensajes {
     background: #F8C4B4;
@@ -129,18 +126,30 @@ button{
     padding: 3px;
     box-sizing: border-box;
     margin: -4px;
-    border: 2px outset rgb(53, 96, 107);
     border-radius: 20px;
     font-family: 'Mukta', sans-serif;
     font-size: 18px;
-    
+}
+.botonreiniciar:hover {
+    background-color: rgb(171, 175, 40);
 }
 .ataquesLanzados{
     display: grid;
     grid-template-columns: 120px 120px;
     justify-items: center;
 }
-
-input{
-    display: none;
+#vidasJugador, #vidasEnemigo{
+    font-size: 20px;
+    margin-bottom: 0px;
 }
+.ataquesLanzadosJugador, .ataquesLanzadosEnemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 360px) {
+    .tarjetas, .tarjetasAtaques {
+      flex-direction: column;
+    }
+  }
