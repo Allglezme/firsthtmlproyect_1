@@ -6,15 +6,9 @@ const botonAgua= document.getElementById('botonAgua')
 const botonTierra= document.getElementById('botonTierra')
 const botonReiniciar = document.getElementById('boton reiniciar')
 
-const inputBunwilkl = document.getElementById("Bunwilkl")
-const inputSuit = document.getElementById("Suit")
-const inputDomino = document.getElementById("Domino")
-const inputTraidor = document.getElementById("Traidor")
-const inputHiphap = document.getElementById("Hiphap")
-const inputRocky = document.getElementById("Rocky")
-const spanMascotaJugador = document.getElementById("mascotaJugador")
 const sectionSeleccionarMascota= document.getElementById("seleccionar-mascota")
 
+const spanMascotaJugador = document.getElementById("mascotaJugador")
 const spanMascotaEnemigo = document.getElementById("mascotaEnemigo")
 
 const spanVidasJugador = document.getElementById("vidasJugador")
@@ -24,9 +18,20 @@ const sectionMensajes=document.getElementById('resultadoDelAtaque')
 const ataqueDelJugador=document.getElementById('ataqueDelJugador')
 const ataqueDelEnemigo=document.getElementById('ataqueDelEnemigo')
 
+const contenedorTarjetas = document.getElementById("contenedorTarjetas")
+
 let mokepones = []
 let ataqueJugador 
 let ataqueEnemigo
+let opcionDeMokepones
+
+let inputBunwilkl
+let inputSuit  
+let inputDomino 
+let inputTraidor 
+let inputHiphap 
+let inputRocky 
+
 let vidasJugador = 3
 let vidasEnemigo = 3
 
@@ -87,14 +92,30 @@ Rocky.ataques.push(
     {nombre: "Agua", id:"botonAgua"},
     {nombre: "Tierra", id:"botonTierra"},
 )
-
-
-console.log(mokepones)
+mokepones.push(Bunwilkl,Suit,Domino,Hiphap,Traidor,Rocky)
 
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = "none"
     sectionReiniciar.style.display = "none"
     
+    mokepones.forEach((Mokepon) => {
+        opcionDeMokepones = `
+        <input type="radio" name="mascota" id=${Mokepon.name} />
+        <label class = "tarjetademokepon" for=${Mokepon.name}>
+            <p>${Mokepon.name}</p>
+            <img src=${Mokepon.picture} alt=${Mokepon.name}>
+        </label>
+        `
+        contenedorTarjetas.innerHTML += opcionDeMokepones
+
+        inputBunwilkl = document.getElementById("Bunwilkl")
+        inputSuit = document.getElementById("Suit")
+        inputDomino = document.getElementById("Domino")
+        inputTraidor = document.getElementById("Traidor")
+        inputHiphap = document.getElementById("Hiphap")
+        inputRocky = document.getElementById("Rocky")
+    })
+
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
    
     botonFuego.addEventListener('click', ataqueFuego)

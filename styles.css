@@ -67,7 +67,7 @@ button{
     font-size: 24px;
 }
 .botonseleccionar:hover {
-    background-color: rgb(172, 177, 26);
+    background-color: #d1b05b;
 }
 input {
     display: none;
@@ -129,9 +129,10 @@ input:checked + label {
     border-radius: 20px;
     font-family: 'Mukta', sans-serif;
     font-size: 18px;
+    border: 2px outset #FCFFB2;
 }
 .botonreiniciar:hover {
-    background-color: rgb(171, 175, 40);
+    background-color: #BCE29E;
 }
 .ataquesLanzados{
     display: grid;
