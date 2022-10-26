@@ -19,11 +19,15 @@ const ataqueDelJugador=document.getElementById('ataqueDelJugador')
 const ataqueDelEnemigo=document.getElementById('ataqueDelEnemigo')
 
 const contenedorTarjetas = document.getElementById("contenedorTarjetas")
+const contenedorAtaques =document.getElementById("contenedorAtaques")
 
 let mokepones = []
+let Ataques = []
+
 let ataqueJugador 
 let ataqueEnemigo
 let opcionDeMokepones
+let opcionDeAtaques
 
 let inputBunwilkl
 let inputSuit  
@@ -31,6 +35,8 @@ let inputDomino
 let inputTraidor 
 let inputHiphap 
 let inputRocky 
+
+let mascotaJugador
 
 let vidasJugador = 3
 let vidasEnemigo = 3
@@ -43,12 +49,23 @@ class Mokepon {
         this.ataques = []  
     }
 }
+class Ataque {
+    constructor(name,tipoDeAtaque,buttonid ){
+        this.name = name
+        this.tipoDeAtaque = tipoDeAtaque
+        this.buttonid = buttonid 
+    }
+}
 let Bunwilkl = new Mokepon("Bunwilkl","./assets/bbokariFront.png",5)
 let Suit = new Mokepon("Suit","./assets/leebitFront.png",5)
 let Domino = new Mokepon("Domino","./assets/jiniretFront.png",5)
 let Hiphap = new Mokepon("Hiphap","./assets/quokkaFront.png",5)
 let Traidor = new Mokepon("Traidor","./assets/foxinyFront.png",5)
 let Rocky = new Mokepon("Rocky","./assets/wolfFront.png",5)
+
+let AtaqueFuego  = new Ataque("Fuego 🔥","botonAtaquetipofuego","botonFuego") 
+let AtaqueAgua  =  new Ataque("Agua 💧","botonAtaquetipoagua","botonAgua")
+let AtaqueTierra  = new Ataque("Tierra 🌱", "botonAtaquetipotierra","botonTierra")
 
 Bunwilkl.ataques.push(
     {nombre: "Agua", id:"botonAgua"},
@@ -93,6 +110,7 @@ Rocky.ataques.push(
     {nombre: "Tierra", id:"botonTierra"},
 )
 mokepones.push(Bunwilkl,Suit,Domino,Hiphap,Traidor,Rocky)
+Ataques.push(AtaqueFuego,AtaqueAgua,AtaqueTierra)
 
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = "none"
@@ -125,60 +143,64 @@ function iniciarJuego() {
     botonReiniciar.addEventListener("click",reiniciarJuego)
 }
 function seleccionarMascotaJugador() {
-    if (inputBunwilkl.checked){
-        alert ("Seleccionaste a Bunwilkl")
-        spanMascotaJugador.innerHTML = "Bunwilkl"
+    if (inputBunwilkl.checked){  
+        spanMascotaJugador.innerHTML = inputBunwilkl.id
+        mascotaJugador = inputBunwilkl.id
     }
-    else if(inputSuit.checked){
-        alert ("Seleccionaste a Suit")
-        spanMascotaJugador.innerHTML = "Suit"
+    else if(inputSuit.checked){  
+        spanMascotaJugador.innerHTML = inputSuit.id
+        mascotaJugador = inputSuit.id
     }
-    else if(inputDomino.checked){
-        alert ("Seleccionaste a Domino")
-        spanMascotaJugador.innerHTML = "Domino"
+    else if(inputDomino.checked){  
+        spanMascotaJugador.innerHTML = inputDomino.id
+        mascotaJugador = inputDomino.id
     }
     else if(inputTraidor.checked){
-        alert ("Seleccionaste a Traidor")
-        spanMascotaJugador.innerHTML = "Traidor"
+        spanMascotaJugador.innerHTML = inputTraidor.id
+        mascotaJugador = inputTraidor.id
     }
     else if(inputHiphap.checked){
-        alert ("Seleccionaste a Hiphap")
-        spanMascotaJugador.innerHTML = "Hiphap"
+        spanMascotaJugador.innerHTML = inputHiphap.id
+        mascotaJugador = inputHiphap.id
     }
     else if(inputRocky.checked){
-        alert ("Seleccionaste a Rocky")
-        spanMascotaJugador.innerHTML = "Rocky"
+        spanMascotaJugador.innerHTML = inputRocky.id
+        mascotaJugador = inputRocky.id
     }
     else {
         alert("Debes seleccionar una mascota 👈")
     }
     if (spanMascotaJugador.innerHTML != ""){
         seleccionarMascotaEnemigo() 
+        extraerAtaques(mascotaJugador)
         sectionSeleccionarMascota.style.display = "none"
         sectionSeleccionarAtaque.style.display = "flex"
     }
 }
+function extraerAtaques(mascotaJugador){
+    let ataques
+    for (let i = 0; i < mokepones.length; i++) {
+        if (mascotaJugador === mokepones[i].name ) {
+            ataques = mokepones[i].ataques
+        }
+        
+    }
+    console.log(ataques)
+    //ataquesDisponibles(ataques)
+}
+
+
 function seleccionarMascotaEnemigo(){
-    let ataqueAleatorio = aleatorio(1,6)
-    if (ataqueAleatorio == 1){
-        spanMascotaEnemigo.innerHTML = "Bunwilkl"
-        }
-        else if (ataqueAleatorio == 2){
-            spanMascotaEnemigo.innerHTML = "Suit"   
-        }
-        else if (ataqueAleatorio == 3){
-            spanMascotaEnemigo.innerHTML = "Domino"
-        }
-        else if (ataqueAleatorio == 4){
-            spanMascotaEnemigo.innerHTML = "Traidor"
-        }
-        else if (ataqueAleatorio == 5){
-            spanMascotaEnemigo.innerHTML = "Hiphap"
-        }
-        else if (ataqueAleatorio == 6){
-            spanMascotaEnemigo.innerHTML = "Rocky"
-        }
-}    
+    let mascotaAleatoria = aleatorio(0, mokepones.length -1)
+    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].name
+} 
+function ataquesDisponibles() {
+    Ataques.forEach((Ataque) => {
+        opcionDeAtaques = `
+        <button class =${Ataque.tipoDeAtaque} "botonAtaque" id=${buttonid}>${Ataque.name}</button>
+        `})
+        contenedorAtaques.innerHTML += opcionDeAtaques
+}
 function ataqueFuego(){
     ataqueJugador = "FUEGO"
     ataqueAleatorioEnemigo()
