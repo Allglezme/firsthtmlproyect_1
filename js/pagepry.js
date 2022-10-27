@@ -1,9 +1,6 @@
 const sectionSeleccionarAtaque= document.getElementById("seleccionarataque")
 const sectionReiniciar= document.getElementById("reiniciar")
 const botonMascotaJugador = document.getElementById('boton-mascota')
-const botonFuego= document.getElementById('botonFuego')
-const botonAgua= document.getElementById('botonAgua')
-const botonTierra= document.getElementById('botonTierra')
 const botonReiniciar = document.getElementById('boton reiniciar')
 
 const sectionSeleccionarMascota= document.getElementById("seleccionar-mascota")
@@ -19,15 +16,14 @@ const ataqueDelJugador=document.getElementById('ataqueDelJugador')
 const ataqueDelEnemigo=document.getElementById('ataqueDelEnemigo')
 
 const contenedorTarjetas = document.getElementById("contenedorTarjetas")
-const contenedorAtaques =document.getElementById("contenedorAtaques")
+const contenedorAtaques = document.getElementById("contenedorAtaques")
 
 let mokepones = []
-let Ataques = []
 
-let ataqueJugador 
-let ataqueEnemigo
-let opcionDeMokepones
-let opcionDeAtaques
+let ataqueJugador = []
+let ataqueEnemigo = []
+let ataquesMokepon
+let ataqueMokeponEnemigo
 
 let inputBunwilkl
 let inputSuit  
@@ -35,6 +31,14 @@ let inputDomino
 let inputTraidor 
 let inputHiphap 
 let inputRocky 
+
+let botonFuego
+let botonAgua
+let botonTierra
+
+
+
+let botones = []
 
 let mascotaJugador
 
@@ -63,54 +67,49 @@ let Hiphap = new Mokepon("Hiphap","./assets/quokkaFront.png",5)
 let Traidor = new Mokepon("Traidor","./assets/foxinyFront.png",5)
 let Rocky = new Mokepon("Rocky","./assets/wolfFront.png",5)
 
-let AtaqueFuego  = new Ataque("Fuego 🔥","botonAtaquetipofuego","botonFuego") 
-let AtaqueAgua  =  new Ataque("Agua 💧","botonAtaquetipoagua","botonAgua")
-let AtaqueTierra  = new Ataque("Tierra 🌱", "botonAtaquetipotierra","botonTierra")
-
 Bunwilkl.ataques.push(
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Tierra", id:"botonTierra"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
 )
 Suit.ataques.push(
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Tierra", id:"botonTierra"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
 )
 Domino.ataques.push(
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Tierra", id:"botonTierra"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Tierra", id:"botonTierra"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
 )
 Hiphap.ataques.push(
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Tierra", id:"botonTierra"},
-    {nombre: "Tierra", id:"botonTierra"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Tierra", id:"botonTierra"},
+    {nombre: "Agua", id:"botonAgua", class:"botonAtaquetipoagua" },
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
 )
 Traidor.ataques.push(
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Tierra", id:"botonTierra"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Tierra", id:"botonTierra"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
 )
 Rocky.ataques.push(
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Fuego", id:"botonFuego"},
-    {nombre: "Agua", id:"botonAgua"},
-    {nombre: "Tierra", id:"botonTierra"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
 )
 mokepones.push(Bunwilkl,Suit,Domino,Hiphap,Traidor,Rocky)
-Ataques.push(AtaqueFuego,AtaqueAgua,AtaqueTierra)
 
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = "none"
@@ -136,10 +135,6 @@ function iniciarJuego() {
 
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
    
-    botonFuego.addEventListener('click', ataqueFuego)
-    botonAgua.addEventListener('click', ataqueAgua)
-    botonTierra.addEventListener('click', ataqueTierra)
-
     botonReiniciar.addEventListener("click",reiniciarJuego)
 }
 function seleccionarMascotaJugador() {
@@ -171,8 +166,8 @@ function seleccionarMascotaJugador() {
         alert("Debes seleccionar una mascota 👈")
     }
     if (spanMascotaJugador.innerHTML != ""){
-        seleccionarMascotaEnemigo() 
         extraerAtaques(mascotaJugador)
+        seleccionarMascotaEnemigo() 
         sectionSeleccionarMascota.style.display = "none"
         sectionSeleccionarAtaque.style.display = "flex"
     }
@@ -185,59 +180,79 @@ function extraerAtaques(mascotaJugador){
         }
         
     }
-    console.log(ataques)
-    //ataquesDisponibles(ataques)
+    mostrarAtaques(ataques)
 }
+//function mostrarAtaques(ataques)
+function mostrarAtaques(ataques) {
+    ataques.forEach((ataque) => {
+        ataquesMokepon = `
+      <button class = "botonAtaque BAtaque ${ataque.class}"  id=${ataque.id}>${ataque.nombre}</button>
+        `
+        contenedorAtaques.innerHTML += ataquesMokepon
+    })
 
-
+     botonFuego = document.getElementById('botonFuego')
+     botonAgua = document.getElementById('botonAgua')
+     botonTierra = document.getElementById('botonTierra')
+    
+    botones = document.querySelectorAll(".BAtaque")
+}
+function secuenciaAtaques (){
+    botones.forEach((boton) => {
+        boton.addEventListener("click", (e) =>{
+            if (e.target.textcontent === "Fuego" ){
+                ataqueJugador.push("Fuego")
+                console.log(ataqueJugador)
+                boton.style.background = "#112f58"
+            }else if (e.target.textcontent === "Agua" ){
+                ataqueJugador.push("Agua")
+                console.log(ataqueJugador)
+                boton.style.background = "#112f58"
+            }else {
+                ataqueJugador.push("Tierra")
+                console.log(ataqueJugador)
+                boton.style.background = "#112f58"
+            }
+            ataqueAleatorioEnemigo()
+        })
+    })
+    
+}
 function seleccionarMascotaEnemigo(){
     let mascotaAleatoria = aleatorio(0, mokepones.length -1)
     spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].name
+    ataqueMokeponEnemigo = mokepones[mascotaAleatoria].ataques
+
+    secuenciaAtaques ()
 } 
-function ataquesDisponibles() {
-    Ataques.forEach((Ataque) => {
-        opcionDeAtaques = `
-        <button class =${Ataque.tipoDeAtaque} "botonAtaque" id=${buttonid}>${Ataque.name}</button>
-        `})
-        contenedorAtaques.innerHTML += opcionDeAtaques
-}
-function ataqueFuego(){
-    ataqueJugador = "FUEGO"
-    ataqueAleatorioEnemigo()
-}
-function ataqueAgua(){
-    ataqueJugador = "AGUA"
-    ataqueAleatorioEnemigo()
-}
-function ataqueTierra(){
-    ataqueJugador = "TIERRA"
-    ataqueAleatorioEnemigo()
-}
+
 function ataqueAleatorioEnemigo() {
-    let ataqueAleatorio = aleatorio(1,3)
+    let ataqueAleatorio = aleatorio(1,ataqueMokeponEnemigo.length -1) 
     
-    if (ataqueAleatorio == 1) {
-        ataqueEnemigo = 'FUEGO'
-    } else if (ataqueAleatorio == 2) {
-        ataqueEnemigo = 'AGUA'
+    if (ataqueAleatorio == 0 || ataqueAleatorio ==1) {
+        ataqueEnemigo.push('Fuego')
+    } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
+        ataqueEnemigo.push('Agua')
     } else {
-        ataqueEnemigo = 'TIERRA'
+        ataqueEnemigo.push('Tierra')
     }
+    console.log(ataqueEnemigo)
     combate()
-}   
+}
+  
 function combate(){
     if (ataqueJugador == ataqueEnemigo) {
         crearMensaje("⚖Empate")
     }
-    else if (ataqueJugador == "FUEGO" && ataqueEnemigo == "TIERRA"){
+    else if (ataqueJugador == "Fuego" && ataqueEnemigo == "Tierra"){
         crearMensaje("🎉Ganaste")  
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo    
-    }else if (ataqueJugador == "AGUA" && ataqueEnemigo == "FUEGO"){
+    }else if (ataqueJugador == "Agua" && ataqueEnemigo == "Fuego"){
         crearMensaje("🎉Ganaste")    
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo   
-    }else if (ataqueJugador == "TIERRA" && ataqueEnemigo == "AGUA"){
+    }else if (ataqueJugador == "Tierra" && ataqueEnemigo == "Agua"){
         crearMensaje("🎉Ganaste")      
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo
@@ -282,4 +297,3 @@ function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 window.addEventListener('load', iniciarJuego)
-
