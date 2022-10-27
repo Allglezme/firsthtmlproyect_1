@@ -36,11 +36,12 @@ let botonFuego
 let botonAgua
 let botonTierra
 
-
-
 let botones = []
 
 let mascotaJugador
+
+let indexAtaqueJugador
+let indexAtaqueEnemigo
 
 let vidasJugador = 3
 let vidasEnemigo = 3
@@ -200,18 +201,21 @@ function mostrarAtaques(ataques) {
 function secuenciaAtaques (){
     botones.forEach((boton) => {
         boton.addEventListener("click", (e) =>{
-            if (e.target.textcontent === "Fuego" ){
+            console.log(e.target.textContent)
+            if (e.target.textContent === "Fuego" ){
                 ataqueJugador.push("Fuego")
                 console.log(ataqueJugador)
-                boton.style.background = "#112f58"
-            }else if (e.target.textcontent === "Agua" ){
+                boton.style.background = "#7F8487"
+            }else if (e.target.textContent === "Agua" ){
                 ataqueJugador.push("Agua")
                 console.log(ataqueJugador)
-                boton.style.background = "#112f58"
-            }else {
+                boton.style.background = "#7F8487"
+            }else if(e.target.textContent === "Tierra" ){
                 ataqueJugador.push("Tierra")
                 console.log(ataqueJugador)
-                boton.style.background = "#112f58"
+                boton.style.background = "#7F8487"
+            }else {
+                console.log("ERROR")
             }
             ataqueAleatorioEnemigo()
         })
@@ -237,32 +241,44 @@ function ataqueAleatorioEnemigo() {
         ataqueEnemigo.push('Tierra')
     }
     console.log(ataqueEnemigo)
-    combate()
+    iniciarPelea()
 }
-  
-function combate(){
-    if (ataqueJugador == ataqueEnemigo) {
-        crearMensaje("⚖Empate")
+function iniciarPelea(){    
+    if (ataqueJugador === 5) {
+        combate()
     }
-    else if (ataqueJugador == "Fuego" && ataqueEnemigo == "Tierra"){
-        crearMensaje("🎉Ganaste")  
-        vidasEnemigo--
-        spanVidasEnemigo.innerHTML = vidasEnemigo    
-    }else if (ataqueJugador == "Agua" && ataqueEnemigo == "Fuego"){
-        crearMensaje("🎉Ganaste")    
-        vidasEnemigo--
-        spanVidasEnemigo.innerHTML = vidasEnemigo   
-    }else if (ataqueJugador == "Tierra" && ataqueEnemigo == "Agua"){
-        crearMensaje("🎉Ganaste")      
-        vidasEnemigo--
-        spanVidasEnemigo.innerHTML = vidasEnemigo
-    }else {
-        crearMensaje("😜Perdiste")
-        vidasJugador--
-        spanVidasJugador.innerHTML = vidasJugador
+}
+function indexAmbosOponente(jugador,enemigo){
+    indexAtaqueJugador =ataqueJugador[jugador]
+    indexAtaqueEnemigo =ataqueEnemigo[enemigo]
+}
+function combate() {
+    for (let index = 0; index < ataqueJugador.length; index++) {
+    if(ataqueJugador[index] === ataqueEnemigo[index]) {
+        indexAmbosOponente(index, index)
+        crearMensaje("EMPATE")
+       
+    } else if (ataqueJugador[index] === 'Fuego' && ataqueEnemigo[index] === 'Tierra') {
+        indexAmbosOponente(index, index)
+        crearMensaje("GANASTE")
+        
+    } else if (ataqueJugador[index] ==='Agua' && ataqueEnemigo[index] === 'Fuego') {
+        indexAmbosOponente(index, index)
+        crearMensaje("GANASTE")
+        
+    } else if (ataqueJugador[index] === 'Tierra' && ataqueEnemigo[index] === 'Agua') {
+        indexAmbosOponente(index, index)
+        crearMensaje("GANASTE")
+        victoriasJugador++
+        spanVidasJugador.innerHTML = victoriasJugador
+    } else {
+        indexAmbosOponente(index, index)
+        crearMensaje("PERDISTE")
     }
     revisarVidas()
+    }
 }
+
 function revisarVidas(){
     if (vidasEnemigo == 0){
         crearMensajeFinal("Ganaste el combate")
@@ -275,8 +291,8 @@ function crearMensaje(resultadoCombate){
     let nuevoAtaquedelEnemigo = document.createElement('p')
     
     sectionMensajes.innerHTML = resultadoCombate
-    nuevoAtaquedelJugador.innerHTML  = ataqueJugador
-    nuevoAtaquedelEnemigo.innerHTML  = ataqueEnemigo
+    nuevoAtaquedelJugador.innerHTML  = indexAtaqueJugador
+    nuevoAtaquedelEnemigo.innerHTML  = indexAtaqueEnemigo
 
     ataqueDelJugador.appendChild(nuevoAtaquedelJugador)
     ataqueDelEnemigo.appendChild(nuevoAtaquedelEnemigo)
