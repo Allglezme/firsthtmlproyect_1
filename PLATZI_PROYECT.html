@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>MOKEPON!</title>
+        <title>KEMOPON!</title>
         
         <link rel="stylesheet" href="./styles.css"
         <script> 
@@ -11,7 +11,7 @@
     <body>
        
         <section id="seleccionar-mascota">
-            <h1 class="titulo">MOKEPON! 🔥💧🌱</h1>
+            <h1 class="titulo">KEMOPON! 🔥💧🌱</h1>
 
             <h2 class="subtitulo">Elige tu mascota:</h2>
             <div  id = "contenedorTarjetas"class="tarjetas">      
@@ -19,8 +19,20 @@
 
             <button class = "botonseleccionar"id="boton-mascota">Seleccionar</button>
         </section>
+
+        <section id="verMapa">
+
+            <h1 class="titulo">Recorre el mapa</h1>
+            <canvas id="mapa"></canvas>
+            <button class="botonesvarios" onmouseup="detenerMovimiento()"  onmousedown="moverArriba()">Arriba</button>
+            <button class="botonesvarios" onmouseup="detenerMovimiento()"  onmousedown="moverIzquierda()">Izquierda</button>
+            <button class="botonesvarios" onmouseup="detenerMovimiento()"  onmousedown="moverAbajo()">Abajo</button>
+            <button class="botonesvarios" onmouseup="detenerMovimiento()"  onmousedown="moverDerecha()">Derecha</button>
+
+        </section>
+
         <section id="seleccionarataque">
-            <h1 class="titulo">MOKEPON! 🔥💧🌱</h1>
+            <h1 class="titulo">KEMOPON! 🔥💧🌱</h1>
             <h2 class="subtitulo">Elige tu Ataque:</h2>
                 <div  id = "contenedorAtaques"class="tarjetasAtaques">
                    
@@ -35,13 +47,13 @@
     
                 <div class="ataquesLanzados">
                     <div class="ataquesLanzadosJugador">
-                        <p id= "vidasJugador">3</p>
+                        <p id= "vidasJugador">0</p>
                         <p id= "mascotaJugador"></p>
                         <div id = "ataqueDelJugador"></div>
                     </div>
 
                     <div class="ataquesLanzadosEnemigo">
-                        <p id= "vidasEnemigo">3</p>
+                        <p id= "vidasEnemigo">0</p>
                         <p id= "mascotaEnemigo"></p>
                         <div id = "ataqueDelEnemigo"></div>
                     </div>
