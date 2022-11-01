@@ -58,16 +58,27 @@ let mapaBackground = new Image()
 
 mapaBackground.src = "./assets/kemoponmap.png"
 
+let alturaDeseada
+let anchoDelMapa = window.innerWidth -40
+const anchoMaxMapa = 640
+if (anchoDelMapa > anchoMaxMapa){
+    anchoDelMapa = anchoMaxMapa -40
+}
+
+alturaDeseada = anchoDelMapa * 600/800
+mapa.width = anchoDelMapa
+mapa.height = alturaDeseada
+
 class Mokepon {
-    constructor(name, picture, hp,x =10,y=10){
+    constructor(name, picture, hp){
         this.name = name
         this.picture = picture
         this.hp = hp 
         this.ataques = []  
-        this.x = x
-        this.y = y
         this.ancho = 80 
         this.alto= 80
+        this.x = aleatorio(0,mapa.width -this.ancho)
+        this.y = aleatorio(0,mapa.height -this.alto)
         this.mapaFoto = new Image()
         this.mapaFoto.src = picture
         this.velocidadX = 0
@@ -98,12 +109,12 @@ let Hiphap = new Mokepon("Hiphap","./assets/puppymFront.png",5)
 let Pendu = new Mokepon("Pendu","./assets/foxinyFront.png",5)
 let Rocky = new Mokepon("Rocky","./assets/wolfFront.png",5)
 
-let BunwilklEnemigo = new Mokepon("Bunwilkl","./assets/bbokariFront.png",5,208,220)
-let SuitEnemigo = new Mokepon("Suit","./assets/leebitFront.png",5,300,120)
-let DominoEnemigo = new Mokepon("Domino","./assets/jiniretFront.png",5,164,20)
-let HiphapEnemigo = new Mokepon("Hiphap","./assets/puppymFront.png",5,360,280)
-let PenduEnemigo = new Mokepon("Pendu","./assets/foxinyFront.png",5,520,200)
-let RockyEnemigo = new Mokepon("Rocky","./assets/wolfFront.png",5,12,152)
+let BunwilklEnemigo = new Mokepon("Bunwilkl","./assets/bbokariFront.png",5)
+let SuitEnemigo = new Mokepon("Suit","./assets/leebitFront.png",5)
+let DominoEnemigo = new Mokepon("Domino","./assets/jiniretFront.png",5)
+let HiphapEnemigo = new Mokepon("Hiphap","./assets/puppymFront.png",5)
+let PenduEnemigo = new Mokepon("Pendu","./assets/foxinyFront.png",5)
+let RockyEnemigo = new Mokepon("Rocky","./assets/wolfFront.png",5)
 
 Bunwilkl.ataques.push(
     {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
@@ -147,6 +158,49 @@ Rocky.ataques.push(
     {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
 )
+//Enemigos
+BunwilklEnemigo.ataques.push(
+    {nomEnemigobre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+)
+SuitEnemigo.ataques.push(
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+)
+DominoEnemigo.ataques.push(
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+)
+HiphapEnemigo.ataques.push(
+    {nombre: "Agua", id:"botonAgua", class:"botonAtaquetipoagua" },
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+)
+PenduEnemigo.ataques.push(
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+)
+RockyEnemigo.ataques.push(
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+)
 mokepones.push(Bunwilkl,Suit,Domino,Hiphap,Pendu,Rocky)
 
 function iniciarJuego() {
@@ -176,7 +230,9 @@ function iniciarJuego() {
    
     botonReiniciar.addEventListener("click",reiniciarJuego)
 }
+//Pantalla inicial
 function seleccionarMascotaJugador() {
+
     if (inputBunwilkl.checked){  
         spanMascotaJugador.innerHTML = inputBunwilkl.id
         mascotaJugador = inputBunwilkl.id
@@ -203,15 +259,14 @@ function seleccionarMascotaJugador() {
     }
     else {
         alert("Debes seleccionar una mascota 👈")
-    }
+    }//Cambio de pantalla
     if (spanMascotaJugador.innerHTML != ""){
         extraerAtaques(mascotaJugador)
-        seleccionarMascotaEnemigo() 
         sectionSeleccionarMascota.style.display = "none"
 
         sectionVerMapa.style.display = "flex"
         iniciarMapa() 
-        //sectionSeleccionarAtaque.style.display = "flex"
+        
     }
 }
 function extraerAtaques(mascotaJugador){
@@ -263,10 +318,9 @@ function secuenciaAtaques (){
     })
     
 }
-function seleccionarMascotaEnemigo(){
-    let mascotaAleatoria = aleatorio(0, mokepones.length -1)
-    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].name
-    ataqueMokeponEnemigo = mokepones[mascotaAleatoria].ataques
+function seleccionarMascotaEnemigo(enemigo){
+    spanMascotaEnemigo.innerHTML = enemigo.name
+    ataqueMokeponEnemigo = enemigo.ataques
 
     secuenciaAtaques ()
 } 
@@ -426,8 +480,7 @@ function sePresionoTecla (event){
     }
 }
 function iniciarMapa(){
-        mapa.width = 600
-        mapa.height = 400
+        
         mascotaJugadorObjeto = obtenerObjetoMascota(mascotaJugador)
         intervaloMov = setInterval(pintarCanvas,50)
 
@@ -463,8 +516,12 @@ function revisarColisiones(enemigo){
         return 
     }
     detenerMovimiento()
+    clearInterval(intervaloMov)
     console.log("colisionaste")
-    alert("Colisionaste con "+ enemigo.name)
+    sectionSeleccionarAtaque.style.display = "flex"
+    sectionVerMapa.style.display = "none"
+    seleccionarMascotaEnemigo(enemigo)
+   // alert("Colisionaste con "+ enemigo.name)
 }
 
 window.addEventListener ('load', iniciarJuego)

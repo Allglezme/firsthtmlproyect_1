@@ -75,28 +75,8 @@ button{
   transform: translateY(4px);
 }
 
-.botonesvarios{
-    width: 100px;
-    height: 36px;
-    background: #FCFFB2;
-    padding: 3px;
-    box-sizing: border-box;
-    margin: 2px;
-    border-radius: 20px;
-    font-family: 'Mukta', sans-serif;
-    font-size: 18px;
-    border: 2px outset #FCFFB2;
-    cursor: pointer;
-    box-shadow: 0 4px #999;
-}
-.botonesvarios:hover {
-    background-color: #BCE29E;
-}
-.botonesvarios:active{
-    background-color: #BCE29E;
-  box-shadow: 0 2px #666;
-  transform: translateY(4px);
-}
+
+
 
 input {
     display: none;
@@ -180,17 +160,47 @@ input:checked + label {
 #verMapa{
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
 }
 
 #mapa {
-    border: 2px solid  white;
+    border: 1px solid  white;
+    border-radius: 5%;
+}
+.botonesvarios{
+    width: 100px;
+    height: 36px;
+    background: #FCFFB2;
+    padding: 3px;
+    box-sizing: border-box;
+    margin: 4px;
+    border-radius: 20px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 18px;
+    border: 2px outset #FCFFB2;
+    cursor: pointer;
+    box-shadow: 0 4px #999;
+}
+.botonesvarios:hover {
+    background-color: #BCE29E;
+}
+.botonesvarios:active{
+  background-color: #BCE29E;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }
 
 
-
-@media (max-width: 360px) {
+@media (max-width: 560px) {
     .tarjetas, .tarjetasAtaques {
       flex-direction: column;
     }
- 
+}
+
+@media (max-width: 360px) {
+    #verMapa div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
