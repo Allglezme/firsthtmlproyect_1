@@ -111,99 +111,69 @@ let Hiphap = new Mokepon("Hiphap","./assets/puppymFront.png",5)
 let Pendu = new Mokepon("Pendu","./assets/foxinyFront.png",5)
 let Rocky = new Mokepon("Rocky","./assets/wolfFront.png",5)
 
-let BunwilklEnemigo = new Mokepon("Bunwilkl","./assets/bbokariFront.png",5)
-let SuitEnemigo = new Mokepon("Suit","./assets/leebitFront.png",5)
-let DominoEnemigo = new Mokepon("Domino","./assets/jiniretFront.png",5)
-let HiphapEnemigo = new Mokepon("Hiphap","./assets/puppymFront.png",5)
-let PenduEnemigo = new Mokepon("Pendu","./assets/foxinyFront.png",5)
-let RockyEnemigo = new Mokepon("Rocky","./assets/wolfFront.png",5)
+const BunwilklAtaques = [
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+]
+const SuitAtaques =[
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
+    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
+] 
 
-Bunwilkl.ataques.push(
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-Suit.ataques.push(
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-Domino.ataques.push(
+const DominoAtaques =[
     {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
     {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
     {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-Hiphap.ataques.push(
+]
+
+const HiphapAtaques =[
     {nombre: "Agua", id:"botonAgua", class:"botonAtaquetipoagua" },
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
     {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-Pendu.ataques.push(
+]
+
+const PenduAtaques =[
     {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
     {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
     {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-Rocky.ataques.push(
+]
+
+const RockyAtaques =[
     {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
     {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
     {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
     {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
     {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
+]
+Bunwilkl.ataques.push(...BunwilklAtaques)
+Suit.ataques.push(...SuitAtaques)
+Domino.ataques.push(...DominoAtaques)
+Hiphap.ataques.push(...HiphapAtaques)
+Pendu.ataques.push(...PenduAtaques)
+Rocky.ataques.push(...RockyAtaques)
 //Enemigos
-BunwilklEnemigo.ataques.push(
-    {nomEnemigobre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-SuitEnemigo.ataques.push(
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-DominoEnemigo.ataques.push(
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-HiphapEnemigo.ataques.push(
-    {nombre: "Agua", id:"botonAgua", class:"botonAtaquetipoagua" },
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-PenduEnemigo.ataques.push(
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
-RockyEnemigo.ataques.push(
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Fuego", id:"botonFuego", class:" botonAtaquetipofuego"},
-    {nombre: "Agua", id:"botonAgua", class:" botonAtaquetipoagua"},
-    {nombre: "Tierra", id:"botonTierra", class:" botonAtaquetipotierra"},
-)
+/*BunwilklEnemigo.ataques.push(...BunwilklAtaques)
+SuitEnemigo.ataques.push()
+DominoEnemigo.ataques.push()
+HiphapEnemigo.ataques.push()
+PenduEnemigo.ataques.push()
+RockyEnemigo.ataques.push()*/
+
 mokepones.push(Bunwilkl,Suit,Domino,Hiphap,Pendu,Rocky)
+
+
 
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = "none"
@@ -457,6 +427,8 @@ function pintarCanvas(){
     )
     mascotaJugadorObjeto.pintarMiMokepon()
 
+    enviarPosicion(mascotaJugadorObjeto.x,mascotaJugadorObjeto.y)
+
     BunwilklEnemigo.pintarMiMokepon()
     SuitEnemigo.pintarMiMokepon()
     DominoEnemigo.pintarMiMokepon()
@@ -473,6 +445,44 @@ function pintarCanvas(){
         revisarColisiones(RockyEnemigo)
     }
 }
+
+function enviarPosicion(x,y){
+    fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`,{
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            x,
+            y
+        })
+    })
+    .then(function(res){
+        if (res.ok){
+            res.json()
+                .then(function({enemigos}){
+                    console.log(enemigos)
+                    enemigos.forEach(function(enemigo){
+                        const mokeponname =enemigo.mokepon.name || ""
+                        if (mokeponname === Bunwilkl) {
+                            let BunwilklEnemigo = new Mokepon("Bunwilkl","./assets/bbokariFront.png",5)
+                        }else if (mokeponname === Suit){
+                            let SuitEnemigo = new Mokepon("Suit","./assets/leebitFront.png",5)
+                        }else if (mokeponname === Domino){
+                            let DominoEnemigo = new Mokepon("Domino","./assets/jiniretFront.png",5)
+                        }else if (mokeponname === Hiphap){
+                            let HiphapEnemigo = new Mokepon("Hiphap","./assets/puppymFront.png",5)
+                        }else if (mokeponname === Pendu){
+                            let PenduEnemigo = new Mokepon("Pendu","./assets/foxinyFront.png",5)
+                        }else if (mokeponname === Rocky){
+                            let RockyEnemigo = new Mokepon("Rocky","./assets/wolfFront.png",5)
+                        }
+                    })  
+                })
+        }
+    }) 
+}
+
 function moverDerecha(){
     mascotaJugadorObjeto.velocidadX = 5
 }
@@ -511,7 +521,7 @@ function sePresionoTecla (event){
 function iniciarMapa(){
         
         mascotaJugadorObjeto = obtenerObjetoMascota(mascotaJugador)
-        intervaloMov = setInterval(pintarCanvas,50)
+        intervaloMov = setInterval(pintarCanvas,100)
 
         window.addEventListener("keydown", sePresionoTecla)
         window.addEventListener("keyup", detenerMovimiento)
