@@ -16,6 +16,10 @@ class Player {
     asignarMokepon(mokepon){
         this.mokepon  = mokepon
     }
+    actualizarPosicion(x,y){
+        this.x = x
+        this.y = y
+    }
 }
 class Mokepon{
     constructor(name){
@@ -46,6 +50,24 @@ app.post("/mokepon/:jugadorId",(req,res) => {
 
     console.log(jugadorId)
     res.end()
+})
+
+app.post("/mokepon/:jugadorId/posicion",(req,res) => {
+    const jugadorId = req.params.jugadorId || ""
+    const x = req.body.x || 0
+    const y = req.body.y || 0
+
+    const jugadorIndex  = Jugadores.findIndex((jugador) =>jugadorId ===jugador.id)
+
+    if(jugadorIndex >= 0){
+        Jugadores[jugadorIndex].actualizarPosicion(x,y)
+    }   
+
+    const enemigos=Jugadores.filter((jugador)=>jugadorId!==jugador.id)
+    res.send({
+        enemigos
+    })
+
 })
 
 app.listen(8080, () => {
